@@ -93,6 +93,79 @@ body {
   max-width: 40%;
 }
 
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .modal-dialog {
+    max-width: 95%;
+    margin: 10px auto;
+  }
+
+  .d-flex.justify-content-between,
+  .d-flex.justify-content-end {
+    flex-direction: column;
+    align-items: stretch !important;
+  }
+
+  .d-flex.justify-content-between > div,
+  .d-flex.justify-content-end > div {
+    margin-bottom: 10px;
+    width: 100%;
+  }
+
+  .btn {
+    width: 100%;
+    margin-bottom: 5px;
+    margin-right: 0 !important;
+  }
+
+  /* Hide table on mobile, show cards */
+  .table-responsive-cards thead {
+    display: none;
+  }
+
+  .table-responsive-cards,
+  .table-responsive-cards tbody,
+  .table-responsive-cards tr,
+  .table-responsive-cards td {
+    display: block;
+    width: 100%;
+  }
+
+  .table-responsive-cards tr {
+    margin-bottom: 1rem;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    background: #fff;
+    padding: 10px;
+  }
+
+  body.dark-mode .table-responsive-cards tr {
+    background: #3a3a3a;
+    border-color: #555;
+  }
+
+  .table-responsive-cards td {
+    text-align: left;
+    padding: 0.5rem 0;
+    border: none;
+    position: relative;
+  }
+
+  .table-responsive-cards td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    display: block;
+    margin-bottom: 2px;
+    color: #6c757d;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+  }
+
+  body.dark-mode .table-responsive-cards td::before {
+    color: #b0b0b0;
+  }
+}
+
 /* Compact Specs Column */
 .specs-cell {
   display: -webkit-box;
@@ -141,8 +214,27 @@ body.dark-mode .specs-cell:hover {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
-.specs-cell:hover::after {
+.specs-cell:hover::after,
+.specs-cell.expanded::after {
   opacity: 0;
+}
+
+.specs-cell.expanded {
+  display: block;
+  -webkit-line-clamp: unset;
+  line-clamp: unset;
+  -webkit-box-orient: unset;
+  overflow: visible;
+  z-index: 10;
+  background-color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 10px;
+  border-radius: 4px;
+}
+
+body.dark-mode .specs-cell.expanded {
+  background-color: #404040;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 /* Make table rows more compact */

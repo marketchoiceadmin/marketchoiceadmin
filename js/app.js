@@ -89,7 +89,7 @@ $(document).ready(function () {
             catBody.append(header);
 
             // Table
-            const table = $('<table>').addClass('table table-striped table-hover table-compact');
+            const table = $('<table>').addClass('table table-striped table-hover table-compact table-responsive-cards');
             const thead = $('<thead>').append(`
                 <tr>
                   <th>Name</th>
@@ -130,12 +130,12 @@ $(document).ready(function () {
                 const couponDisplay = product.coupon ? `<br><span class="badge bg-info text-dark">Code: ${product.coupon}</span>` : '';
 
                 const row = $('<tr>').append(`
-                    <td>${product.name} ${stockStatus} ${couponDisplay}</td>
-                    <td>${priceDisplay}</td>
-                    <td><div class="specs-cell">${product.specs}</div></td>
-                    <td>${product.image}</td>
-                    <td>${linksHtml}</td>
-                    <td>
+                    <td data-label="Name">${product.name} ${stockStatus} ${couponDisplay}</td>
+                    <td data-label="Price">${priceDisplay}</td>
+                    <td data-label="Specs"><div class="specs-cell">${product.specs}</div></td>
+                    <td data-label="Image">${product.image}</td>
+                    <td data-label="Links">${linksHtml}</td>
+                    <td data-label="Actions">
                         <button class="btn btn-sm btn-primary me-2">Edit</button>
                         <button class="btn btn-sm btn-danger">Delete</button>
                     </td>
@@ -143,6 +143,11 @@ $(document).ready(function () {
 
                 row.find('.btn-primary').click(() => editProduct(category, originalIndex));
                 row.find('.btn-danger').click(() => deleteProduct(category, originalIndex));
+                row.find('.specs-cell').click(function(e) {
+                    if (window.innerWidth <= 768) {
+                        $(this).toggleClass('expanded');
+                    }
+                });
                 tbody.append(row);
             });
 
