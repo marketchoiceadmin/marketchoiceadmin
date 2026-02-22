@@ -122,16 +122,18 @@
     <h1 class="mb-4 text-center">Admin Application</h1>
 
     <!-- Controls -->
-    <div class="d-flex justify-content-end mb-3 align-items-center">
-      <div>
+    <div class="row mb-3">
+      <div class="col-12 d-flex justify-content-end align-items-center">
         <button id="themeToggle" class="btn btn-outline-secondary">Dark Mode</button>
       </div>
     </div>
-    <div class="d-flex justify-content-between mb-3">
-      <div>
-        <button id="addCategoryBtn" class="btn btn-primary">Add Category</button>
-        <button id="resetDataBtn" class="btn btn-danger">Reset Data</button>
-        <button id="reviewBtn" class="btn btn-secondary">Review JSON</button>
+    <div class="row mb-3">
+      <div class="col-12 d-flex justify-content-between">
+        <div class="w-100">
+          <button id="addCategoryBtn" class="btn btn-primary">Add Category</button>
+          <button id="resetDataBtn" class="btn btn-danger">Reset Data</button>
+          <button id="reviewBtn" class="btn btn-secondary">Review JSON</button>
+        </div>
       </div>
     </div>
 
@@ -139,8 +141,12 @@
     <div class="tab-content">
       <!-- Admin View -->
       <div id="adminView">
-        <div class="input-group mb-3 col-12 col-md-6 px-0">
-          <input type="text" id="searchInput" class="form-control" placeholder="Search products...">
+        <div class="row mb-3">
+          <div class="col-12 col-md-6 px-3">
+            <div class="input-group">
+              <input type="text" id="searchInput" class="form-control" placeholder="Search products...">
+            </div>
+          </div>
         </div>
         <div id="categories"></div>
       </div>
